@@ -1,0 +1,492 @@
+[
+    {
+        "id": "4b0d066b62aaeb99",
+        "type": "tab",
+        "label": "Flux 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a31de8c537d5c11b",
+        "type": "mqtt in",
+        "z": "4b0d066b62aaeb99",
+        "name": "Temperature ",
+        "topic": "smarthome/temperature",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "70bcaf3e01d30e51",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "989a0d04bbc97b8e",
+                "c2f2a9f842db8b9d",
+                "7940b1342630af9b"
+            ]
+        ]
+    },
+    {
+        "id": "989a0d04bbc97b8e",
+        "type": "ui_gauge",
+        "z": "4b0d066b62aaeb99",
+        "name": "🏠 SmartHome Dashboard",
+        "group": "8ae7abf0033c5335",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Température",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 660,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c2f2a9f842db8b9d",
+        "type": "ui_chart",
+        "z": "4b0d066b62aaeb99",
+        "name": "",
+        "group": "8ae7abf0033c5335",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "label": "Historique Température",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 670,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7940b1342630af9b",
+        "type": "switch",
+        "z": "4b0d066b62aaeb99",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "28",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 440,
+        "y": 220,
+        "wires": [
+            [
+                "970ac2042d4090ac"
+            ]
+        ]
+    },
+    {
+        "id": "970ac2042d4090ac",
+        "type": "debug",
+        "z": "4b0d066b62aaeb99",
+        "name": "🔥 Alerte Température",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ab7759df5068206a",
+        "type": "mqtt in",
+        "z": "4b0d066b62aaeb99",
+        "name": "Humidité",
+        "topic": "smarthome/humidity",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "70bcaf3e01d30e51",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "9e2f8bd748bc0500"
+            ]
+        ]
+    },
+    {
+        "id": "af926f235056a689",
+        "type": "mqtt in",
+        "z": "4b0d066b62aaeb99",
+        "name": "Mouvement",
+        "topic": "smarthome/motion",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "70bcaf3e01d30e51",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 420,
+        "wires": [
+            [
+                "6d9e07b0d88b7791"
+            ]
+        ]
+    },
+    {
+        "id": "4cfbd88d2eac8aa0",
+        "type": "mqtt in",
+        "z": "4b0d066b62aaeb99",
+        "name": "Porte",
+        "topic": "smart/tp",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "70bcaf3e01d30e51",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 520,
+        "wires": [
+            [
+                "f53b98201c015f51",
+                "51926a05e5744e76"
+            ]
+        ]
+    },
+    {
+        "id": "6d9e07b0d88b7791",
+        "type": "ui_text",
+        "z": "4b0d066b62aaeb99",
+        "group": "819faab276c1b35c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Détecteur Mouvement",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 660,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "9e2f8bd748bc0500",
+        "type": "ui_gauge",
+        "z": "4b0d066b62aaeb99",
+        "name": "",
+        "group": "8ae7abf0033c5335",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidité",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#1168c5",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 640,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f53b98201c015f51",
+        "type": "debug",
+        "z": "4b0d066b62aaeb99",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "51926a05e5744e76",
+        "type": "ui_text",
+        "z": "4b0d066b62aaeb99",
+        "group": "819faab276c1b35c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Etat Porte",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 600,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "5e47328cfa2c5b0a",
+        "type": "ui_button",
+        "z": "4b0d066b62aaeb99",
+        "name": "",
+        "group": "05345d7d22971cea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Declancher une Alarme ",
+        "tooltip": "",
+        "color": "red",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-bell",
+        "payload": "ON",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 930,
+        "y": 320,
+        "wires": [
+            [
+                "dc6bb8d0775838a2"
+            ]
+        ]
+    },
+    {
+        "id": "6b45f1b2a629484b",
+        "type": "mqtt out",
+        "z": "4b0d066b62aaeb99",
+        "name": "Alarme",
+        "topic": "smart/alarme",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "70bcaf3e01d30e51",
+        "x": 1340,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "dc6bb8d0775838a2",
+        "type": "function",
+        "z": "4b0d066b62aaeb99",
+        "name": "Format message alarme",
+        "func": "msg.payload = \"⚠️ ALERTE ! Intrusion détectée \" + new Date().toLocaleTimeString();\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 420,
+        "wires": [
+            [
+                "6b45f1b2a629484b"
+            ]
+        ]
+    },
+    {
+        "id": "b2b7d16aac104e8b",
+        "type": "ui_button",
+        "z": "4b0d066b62aaeb99",
+        "name": "",
+        "group": "05345d7d22971cea",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "  Réinitialiser Alarme",
+        "tooltip": "",
+        "color": "green",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-refresh",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1050,
+        "y": 200,
+        "wires": [
+            [
+                "fb8e4dd0715653b4"
+            ]
+        ]
+    },
+    {
+        "id": "fb8e4dd0715653b4",
+        "type": "function",
+        "z": "4b0d066b62aaeb99",
+        "name": "Reinitialiser ",
+        "func": "msg.payload = \"\" ;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1310,
+        "y": 340,
+        "wires": [
+            [
+                "6b45f1b2a629484b"
+            ]
+        ]
+    },
+    {
+        "id": "70bcaf3e01d30e51",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "8ae7abf0033c5335",
+        "type": "ui_group",
+        "name": "📊 Capteurs",
+        "tab": "4ed99288e28fde39",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "819faab276c1b35c",
+        "type": "ui_group",
+        "name": "🚨 Sécurité",
+        "tab": "4ed99288e28fde39",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "05345d7d22971cea",
+        "type": "ui_group",
+        "name": "Controle ",
+        "tab": "4ed99288e28fde39",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4ed99288e28fde39",
+        "type": "ui_tab",
+        "name": "SmartHome",
+        "icon": "home",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "86619d94f34779ce",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
